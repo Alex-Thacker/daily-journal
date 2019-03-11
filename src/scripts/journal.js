@@ -2,49 +2,44 @@
     Define the keys and value for a JavaScript object that
     represents a journal entry about what you learned today
 */
-const objectAll = [{
-        date: '3-1-19',
-        concepts: 'lab day',
-        entry: 'lab day to work on exercises',
-        mood: 'happy'
-    },
-    {
-        date: '2-28-19',
-        concepts: 'functions, strings, loops',
-        entry: 'the concept of functions was pretty straight forward, but creating them and using them in line with loops and conditional statements was more of a challenge',
-        mood: 'aight'
+const entry1 = {
+    date: '3-1-19',
+    concepts: 'lab day',
+    entry: 'lab day to work on exercises',
+    mood: 'happy'
+};
+
+const entry2 = {
+    date: '2-28-19',
+    concepts: 'functions, strings, loops',
+    entry: 'the concept of functions was pretty straight forward, but creating them and using them in line with loops and conditional statements was more of a challenge',
+    mood: 'aight'
+};
+
+// take entries and plug them in an array
+const objectAll = [];
+objectAll.push(entry1);
+objectAll.push(entry2);
+
+//create variable thats link to class on html document
+const entryLog = document.querySelector('.entryLog')
+
+//function to create elements and add objects into elements to display on dom
+//entryObject is for empty array with journal entries
+function createDom(entryObject) {
+    let string = `<div>`
+
+    //loop through object to obtain what i want to be displayed
+    for (i = 0; i < entryObject.length; i++) {
+        string += `<h1>${entryObject[i].date}</h1>
+                    <h3>${entryObject[i].concepts}</h3>
+                    <p>${entryObject[i].entry}</p>
+                    <p>${entryObject[i].mood}</p>`
     }
-]
+    string += `</div>`
 
+    entryLog.innerHTML = string;
 
-
-// Function for DOM elements
-
-const frag = document.createDocumentFragment()
-const entryLog = document.querySelector('.entryLog');
-
-
-
-function createElement(object) {
-    const div = document.createElement('div');
-    const el1 = document.createElement('h1');
-    el1.textContent = object.concepts;
-    div.appendChild(el1);
-    const el2 = document.createElement('h3');
-    el2.textContent = object.date;
-    div.appendChild(el2);
-    const el3 = document.createElement('p');
-    el3.textContent = object.entry;
-    div.appendChild(el3);
-    const el4 = document.createElement('p');
-    el4.textContent = object.mood;
-    div.appendChild(el4);
-    frag.appendChild(div);
 }
 
-for (let i = 0; i < objectAll.length; i++) {
-    createElement(objectAll[i]);
-}
-
-
-entryLog.appendChild(frag);
+createDom(objectAll)
