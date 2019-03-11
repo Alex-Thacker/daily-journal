@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "date": "3-1-19",
+      "concepts": "lab day",
+      "entry": "lab day to work on exercises",
+      "mood": "happy",
+      "id": 1
+    },
+    {
+      "date": "2-28-19",
+      "concepts": "functions, strings, loops",
+      "entry": "the concept of functions was pretty straight forward, but creating them and using them in line with loops and conditional statements was more of a challenge",
+      "mood": "aight",
+      "id": 2
+    }
+  ]
+}
